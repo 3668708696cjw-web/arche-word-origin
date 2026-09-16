@@ -1,0 +1,25 @@
+node_modules/
+.project_id
+.github_repo
+.env
+.env.*
+!.env.example
+
+.vercel/
+.grok/
+screenshots/
+artifacts/
+attachments/
+
+dist/
+.output/
+*.log
+.DS_Store
+.nitro/
+node_modules/.nitro/
+
+# Grok 沙箱专用，克隆后不需要
+AGENTS.md
+AGENTS.project.md
+startup.sh
+.node_modules.lock
