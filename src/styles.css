@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f4f5f2;
+  --color-surface: #ffffff;
+  --color-raised: #e8ebe6;
+  --color-fg: #1c1e1c;
+  --color-muted: #5c615c;
+  --color-faint: #8a908a;
+  --color-border: rgb(28 30 28 / 0.09);
+  --color-border-strong: rgb(28 30 28 / 0.16);
+  --color-accent: #2a332e;
+  --color-accent-fg: #f4f5f2;
+  --color-danger: #a85a50;
+
+  --font-display: "Cormorant Garamond", "Noto Serif SC", "Songti SC", serif;
+  --font-body: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+
+  --shadow-border: 0 0 0 1px rgb(28 30 28 / 0.08), 0 1px 2px rgb(28 30 28 / 0.04);
+  --shadow-focus: 0 0 0 1.5px rgb(42 51 46 / 0.35);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    min-height: 100dvh;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  a {
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  button,
+  a,
+  [role="button"] {
+    -webkit-tap-highlight-color: color-mix(in oklab, var(--color-fg) 10%, transparent);
+  }
+
+  ::selection {
+    background: rgb(42 51 46 / 0.16);
+    color: var(--color-fg);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  input,
+  textarea {
+    font: inherit;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.enter {
+  animation: rise 160ms var(--ease-out) both;
+}
+.enter-2 {
+  animation: rise 160ms var(--ease-out) 30ms both;
+}
+.enter-3 {
+  animation: rise 160ms var(--ease-out) 50ms both;
+}
+.enter-4 {
+  animation: rise 160ms var(--ease-out) 70ms both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
